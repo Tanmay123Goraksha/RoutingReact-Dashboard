@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import * as ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom"; // Import Routes and Route
 import './App.css';
+import FeedbackForm from './Form'; // Correct component name
+import TicketBookingInterface from './TicketBookingInterface';
+import Tickethistory from "./tickethistory";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/history" element={<Tickethistory/>} />
+          <Route path="/form" element={<FeedbackForm />} /> {/* Use FeedbackForm */}
+          <Route path="/booking" element={<TicketBookingInterface />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
